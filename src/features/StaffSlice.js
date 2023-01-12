@@ -21,6 +21,23 @@ export const getStaff = createAsyncThunk("/staff/getStaff", async () => {
   return response.data;
 });
 
+export const patchResource = createAsyncThunk(
+  "staff/patchResource",
+  async (data, thunkApi) => {
+    const response = await axios.patch(
+      `https://touchinspiration-0ada.restdb.io/rest/sample/${data._id}`,
+      data,
+      {
+        headers: {
+          "x-apikey": "63be7360969f06502871ad7f",
+        },
+      }
+    );
+
+    console.log("response", response.data);
+    return response.data;
+  }
+);
 const staffSlice = createSlice({
   name: "staff",
   initialState,

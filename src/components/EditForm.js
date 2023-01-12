@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { staffSelector } from "../features/StaffSlice";
+import { getStaff, patchResource, staffSelector } from "../features/StaffSlice";
 
 const EditForm = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
 
   const data = useSelector(staffSelector);
 
@@ -13,10 +14,23 @@ const EditForm = () => {
   const [name, setName] = useState(singleEmployee?.name);
   const [email, setEmail] = useState(singleEmployee?.email);
   const [occupation, setOccupation] = useState(singleEmployee?.occupation);
-  const [bio, setBio] = useState(singleEmployee.bio);
+  const [bio, setBio] = useState(singleEmployee?.bio);
 
   const handleEdit = async (e) => {
-    e.preventDEfault();
+    e.preventDefault();
+
+    if (name && email && occupation && bio) {
+      await dispatch(
+        patchResource({
+          _id: id,
+          name,
+          email,
+          occupation,
+          bio,
+        })
+      );
+      dispatch(getStaff());
+    }
   };
   return (
     <form onSubmit={handleEdit}>
