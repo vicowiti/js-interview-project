@@ -1,0 +1,32 @@
+.person-card {
+  background: #fff;
+  padding: 10px;
+  margin: 1.5rem;
+  border-radius: 1rem;
+}
+
+.cards-parent {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card-header {
+  /* display: flex; */
+  align-items: center;
+  gap: 1rem;
+}
+.editbtn {
+  background-color: yellow;
+  padding: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  font-weight: bolder;
+  font-size: 1rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+  .cards-parent {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

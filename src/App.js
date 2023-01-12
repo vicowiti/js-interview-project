@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import EditForm from "./components/EditForm";
 import Navbar from "./components/Navbar/Navbar";
-import StaffList from "./components/StaffList";
+import StaffList from "./components/StaffList/StaffList.jsx";
 
 const App = () => {
   return (
