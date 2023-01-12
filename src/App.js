@@ -1,15 +1,17 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getStaff, staffSelector } from "./features/StaffSlice";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import EditForm from "./components/EditForm";
+import StaffList from "./components/StaffList";
 
 const App = () => {
-  const dispatch = useDispatch();
-  const data = useSelector(staffSelector);
-  useEffect(() => {
-    dispatch(getStaff());
-  }, [dispatch]);
-  console.log(data);
-  return <div>App</div>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<StaffList />} />
+        <Route path="/:id" element={<EditForm />} />
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default App;

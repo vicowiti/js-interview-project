@@ -17,7 +17,7 @@ export const getStaff = createAsyncThunk("/staff/getStaff", async () => {
       },
     }
   );
-  console.log(response);
+
   return response.data;
 });
 
@@ -28,12 +28,15 @@ const staffSlice = createSlice({
   extraReducers: {
     [getStaff.fulfilled]: (state, { payload }) => {
       state.staff = payload;
+      state.isLoading = false;
     },
     [getStaff.pending]: (state) => {
       state.isLoading = true;
+      state.isError = false;
     },
-    [getStaff.rejected]: (state, { payload }) => {
+    [getStaff.rejected]: (state) => {
       state.isError = true;
+      state.isLoading = false;
     },
   },
 });
