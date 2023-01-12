@@ -2,14 +2,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  background: #000;
+  opacity: 0.4;
   width: 100vw;
+  max-width: 1440px;
   height: 100vh;
+  position: absolute;
 }
 
-.spinner {
+.spinner-child {
   animation: spin 2s linear infinite;
   width: 20vw;
+  z-index: 999;
 }
 
 @keyframes spin {
