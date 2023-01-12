@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { getStaff, patchResource, staffSelector } from "../features/StaffSlice";
+import {
+  getStaff,
+  patchResource,
+  staffSelector,
+} from "../../features/StaffSlice";
+import "./Editform.css";
 
 const EditForm = () => {
   const { id } = useParams();
@@ -33,12 +38,14 @@ const EditForm = () => {
     }
   };
   return (
-    <>
-      <button onClick={() => navigate("/")}>Back</button>
+    <div className="editform">
+      <button onClick={() => navigate("/")} className="back-btn">
+        Back
+      </button>
       <form onSubmit={handleEdit}>
         <h2>Edit Details</h2>
         <h5>Id: {id}</h5>
-        <div>
+        <div className="form-sgt">
           <label>Name</label>
           <input
             type="text"
@@ -46,7 +53,7 @@ const EditForm = () => {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form-sgt">
           <label>Email</label>
           <input
             type="email"
@@ -54,7 +61,7 @@ const EditForm = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form-sgt">
           <label>Occupation</label>
           <input
             type="text"
@@ -62,17 +69,20 @@ const EditForm = () => {
             onChange={(e) => setOccupation(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form-sgt">
           <label>Bio</label>
           <textarea
             value={bio}
             onChange={(e) => setBio(e.target.value)}
+            rows={12}
           ></textarea>
         </div>
 
-        <button type="submit">Change</button>
+        <button className="edit-btn" type="submit">
+          Change
+        </button>
       </form>
-    </>
+    </div>
   );
 };
 
