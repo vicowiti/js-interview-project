@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getStaff, staffSelector } from "../../features/StaffSlice";
@@ -6,9 +6,14 @@ import Loader from "../Loader/Loader";
 import "./StaffList.css";
 
 const StaffList = () => {
+  const [searchName, setSearchName] = useState("");
   const dispatch = useDispatch();
   const data = useSelector(staffSelector);
   const navigate = useNavigate();
+
+  const searchedList = data.staff?.filter((item) =>
+    item.name.includes(searchName)
+  );
 
   useEffect(() => {
     dispatch(getStaff());
@@ -18,8 +23,16 @@ const StaffList = () => {
       className="cards-parent"
       style={{ display: data.staff.length > 1 && "grid" }}
     >
+      <div>
+        <input
+          type="search"
+          value={searchName}
+          onChange={(e) => setSearchName(e.target.value)}
+          placeholder="Search by name"
+        />
+      </div>
       {data.staff.length > 1 ? (
-        data.staff?.map((person) => (
+        searchedList?.map((person) => (
           <article className="person-card" key={person._id}>
             <div className="card-header">
               <h3>Name: </h3>

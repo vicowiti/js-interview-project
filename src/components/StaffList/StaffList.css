@@ -6,6 +6,7 @@
 }
 
 .cards-parent {
+  width: 100vw;
   grid-template-columns: repeat(2, 1fr);
 }
 

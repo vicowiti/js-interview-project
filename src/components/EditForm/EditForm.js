@@ -7,6 +7,7 @@ import {
   staffSelector,
 } from "../../features/StaffSlice";
 import "./Editform.css";
+import Loader from "../Loader/Loader.jsx";
 
 const EditForm = () => {
   const { id } = useParams();
@@ -20,12 +21,14 @@ const EditForm = () => {
   const [email, setEmail] = useState(singleEmployee?.email);
   const [occupation, setOccupation] = useState(singleEmployee?.occupation);
   const [bio, setBio] = useState(singleEmployee?.bio);
+  const [loading, setLoading] = useState(false);
 
   const handleEdit = async (e) => {
     e.preventDefault();
 
     if (name && email && occupation && bio) {
-      await dispatch(
+      setLoading(true);
+      const response = await dispatch(
         patchResource({
           _id: id,
           name,
@@ -34,11 +37,17 @@ const EditForm = () => {
           bio,
         })
       );
-      dispatch(getStaff());
+
+      if (response.payload.name) {
+        setLoading(false);
+        dispatch(getStaff());
+        navigate("/");
+      }
     }
   };
   return (
     <div className="editform">
+      {loading && <Loader />}
       <button onClick={() => navigate("/")} className="back-btn">
         Back
       </button>
