@@ -37,3 +37,6 @@ label {
   font-weight: 900;
   margin-bottom: 0.2rem;
 }
+
+@media screen and (max-width: 800px) {
+}

@@ -10,6 +10,19 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
+.search {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.search > input {
+  padding: 20px;
+  border: none;
+  border-radius: 30px;
+}
 .card-header {
   /* display: flex; */
   align-items: center;

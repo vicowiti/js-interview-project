@@ -19,11 +19,8 @@ const StaffList = () => {
     dispatch(getStaff());
   }, [dispatch]);
   return (
-    <div
-      className="cards-parent"
-      style={{ display: data.staff.length > 1 && "grid" }}
-    >
-      <div>
+    <div className="container">
+      <div className="search">
         <input
           type="search"
           value={searchName}
@@ -31,37 +28,42 @@ const StaffList = () => {
           placeholder="Search by name"
         />
       </div>
-      {data.staff.length > 1 ? (
-        searchedList?.map((person) => (
-          <article className="person-card" key={person._id}>
-            <div className="card-header">
-              <h3>Name: </h3>
-              <p>{person.name}</p>
-            </div>
-            <div className="card-header">
-              <h3>Email: </h3>
-              <p>{person.email}</p>
-            </div>
-            <div className="card-header">
-              <h3>Occupation: </h3>
-              <p>{person.occupation}</p>
-            </div>
+      <div
+        className="cards-parent"
+        style={{ display: data.staff.length > 1 && "grid" }}
+      >
+        {data.staff.length > 1 ? (
+          searchedList?.map((person) => (
+            <article className="person-card" key={person._id}>
+              <div className="card-header">
+                <h3>Name: </h3>
+                <p>{person.name}</p>
+              </div>
+              <div className="card-header">
+                <h3>Email: </h3>
+                <p>{person.email}</p>
+              </div>
+              <div className="card-header">
+                <h3>Occupation: </h3>
+                <p>{person.occupation}</p>
+              </div>
 
-            <div>
-              <h5>Bio:</h5>
-              <p>{person.bio}</p>
-            </div>
-            <button
-              className="editbtn"
-              onClick={() => navigate(`/${person._id}`)}
-            >
-              Edit
-            </button>
-          </article>
-        ))
-      ) : (
-        <Loader />
-      )}
+              <div>
+                <h5>Bio:</h5>
+                <p>{person.bio}</p>
+              </div>
+              <button
+                className="editbtn"
+                onClick={() => navigate(`/${person._id}`)}
+              >
+                Edit
+              </button>
+            </article>
+          ))
+        ) : (
+          <Loader />
+        )}
+      </div>
     </div>
   );
 };
