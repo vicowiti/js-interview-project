@@ -8,6 +8,10 @@
   max-width: 1440px;
   height: 100vh !important;
   position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .spinner-child {
