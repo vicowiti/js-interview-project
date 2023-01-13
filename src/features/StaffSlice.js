@@ -7,6 +7,7 @@ const initialState = {
   isError: false,
 };
 
+// GET RESOURCE HANDLER
 export const getStaff = createAsyncThunk("/staff/getStaff", async () => {
   //Fetch data
   const response = await axios.get(
@@ -21,6 +22,7 @@ export const getStaff = createAsyncThunk("/staff/getStaff", async () => {
   return response.data;
 });
 
+//PATCH REQUEST HANDLER
 export const patchResource = createAsyncThunk(
   "staff/patchResource",
   async (data, thunkApi) => {
