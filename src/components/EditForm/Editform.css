@@ -1,7 +1,13 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .editform {
   margin-top: 3rem;
   padding: 20px;
-  width: 100vw !important;
+  max-width: 500px !important;
 }
 
 .form-sgt {
@@ -10,17 +16,19 @@
 }
 
 input {
-  padding: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
 }
 
 .edit-btn {
-  margin-top: 2rem;
+  margin-top: 1rem;
   width: 100%;
-  background-color: yellow;
-  padding: 1rem;
-  font-size: 1.5rem;
-  border-radius: 1rem;
-  font-weight: 900;
+  background-color: turquoise;
+  padding: 0.3rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
   border: none;
 }
 

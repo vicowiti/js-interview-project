@@ -4,7 +4,8 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: #c7bdbd;
-  max-width: 1440px;
+  width: 100vw !important;
+  max-width: 1440px !important;
   margin: auto;
   font-family: "Montserrat", sans-serif;
   position: relative;

@@ -1,3 +1,6 @@
+.container {
+  width: 100% !important;
+}
 .person-card {
   background: #fff;
   padding: 10px;
