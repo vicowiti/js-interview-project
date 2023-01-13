@@ -47,52 +47,55 @@ const EditForm = () => {
   };
   return (
     <div className="form-container">
-      <div className="editform">
-        {loading && <Loader />}
-        <button onClick={() => navigate("/")} className="back-btn">
-          Back
-        </button>
-        <form onSubmit={handleEdit}>
-          <h2>Edit Details</h2>
-          <h5>Id: {id}</h5>
-          <div className="form-sgt">
-            <label>Name</label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div className="form-sgt">
-            <label>Email</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="form-sgt">
-            <label>Occupation</label>
-            <input
-              type="text"
-              value={occupation}
-              onChange={(e) => setOccupation(e.target.value)}
-            />
-          </div>
-          <div className="form-sgt">
-            <label>Bio</label>
-            <textarea
-              value={bio}
-              onChange={(e) => setBio(e.target.value)}
-              rows={8}
-            ></textarea>
-          </div>
-
-          <button className="edit-btn" type="submit">
-            Change
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="editform">
+          <button onClick={() => navigate("/")} className="back-btn">
+            Back
           </button>
-        </form>
-      </div>
+          <form onSubmit={handleEdit}>
+            <h2>Edit Details</h2>
+            <h5>Id: {id}</h5>
+            <div className="form-sgt">
+              <label>Name</label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className="form-sgt">
+              <label>Email</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="form-sgt">
+              <label>Occupation</label>
+              <input
+                type="text"
+                value={occupation}
+                onChange={(e) => setOccupation(e.target.value)}
+              />
+            </div>
+            <div className="form-sgt">
+              <label>Bio</label>
+              <textarea
+                value={bio}
+                onChange={(e) => setBio(e.target.value)}
+                rows={8}
+              ></textarea>
+            </div>
+
+            <button className="edit-btn" type="submit">
+              Change
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 };
