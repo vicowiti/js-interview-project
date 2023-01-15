@@ -7,6 +7,7 @@ import "./StaffList.css";
 import { BsFillPersonFill } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
 import { GiSpanner } from "react-icons/gi";
+import { AiOutlineEdit } from "react-icons/ai";
 
 const StaffList = () => {
   const [searchName, setSearchName] = useState("");
@@ -61,6 +62,7 @@ const StaffList = () => {
                   className="editbtn"
                   onClick={() => navigate(`/${person._id}`)}
                 >
+                  <AiOutlineEdit />
                   Edit
                 </button>
               </div>

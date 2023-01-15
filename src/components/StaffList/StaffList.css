@@ -1,18 +1,18 @@
 .container {
-  width: 100% !important;
+  width: 100vw !important;
+  max-width: 1400px;
 }
 .person-card {
   background: #fff;
-  /* padding: 10px; */
   margin: 0.7rem;
   border-radius: 1rem;
 }
 
 .cards-parent {
-  width: 100vw;
+  width: 100% !important;
   grid-template-columns: repeat(3, 1fr);
-  margin-left: 1rem;
-  margin-right: 1rem;
+  /* margin-left: 1rem;
+  margin-right: 1rem; */
 }
 
 .search {
@@ -29,6 +29,7 @@
   border-radius: 32px;
 }
 .card-header {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -70,7 +71,13 @@
 .editbtn:hover {
   color: #fff;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
+  .cards-parent {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 680px) {
   .cards-parent {
     grid-template-columns: repeat(1, 1fr);
   }
