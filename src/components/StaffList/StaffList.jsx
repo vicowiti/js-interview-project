@@ -15,8 +15,10 @@ const StaffList = () => {
   const data = useSelector(staffSelector);
   const navigate = useNavigate();
 
-  const searchedList = data.staff?.filter((item) =>
-    item.name.includes(searchName)
+  const searchedList = data.staff?.filter(
+    (item) =>
+      item.name.toLowerCase().includes(searchName.toLowerCase()) ||
+      item.email.toLowerCase().includes(searchName.toLowerCase())
   );
 
   useEffect(() => {
@@ -29,7 +31,7 @@ const StaffList = () => {
           type="search"
           value={searchName}
           onChange={(e) => setSearchName(e.target.value)}
-          placeholder="Search by name"
+          placeholder="Search by name or email..."
         />
       </div>
       <div
@@ -69,7 +71,7 @@ const StaffList = () => {
             </article>
           ))
         ) : (
-          <Loader loadingMsg="Loading..." />
+          <Loader loadingMsg="Loading..." errorState={data.isError} />
         )}
       </div>
     </div>
