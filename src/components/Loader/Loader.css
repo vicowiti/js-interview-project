@@ -39,6 +39,6 @@
 .loadmsg > p {
   z-index: 1000000;
   color: green;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: bolder;
 }

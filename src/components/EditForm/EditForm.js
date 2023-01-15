@@ -50,7 +50,7 @@ const EditForm = () => {
           setLoading(false);
           navigate("/");
         }, 3000);
-        setStateMsg("Request failed!");
+        setStateMsg("Error Occurred!");
       }
     }
   };
