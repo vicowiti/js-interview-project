@@ -69,7 +69,7 @@ const StaffList = () => {
             </article>
           ))
         ) : (
-          <Loader />
+          <Loader loadingMsg="Loading..." />
         )}
       </div>
     </div>

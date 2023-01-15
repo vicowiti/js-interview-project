@@ -28,6 +28,7 @@ const EditForm = () => {
     e.preventDefault();
     if (name && email && occupation && bio) {
       setLoading(true);
+      setStateMsg("Loading...");
       const response = await dispatch(
         patchResource({
           _id: id,
@@ -39,19 +40,23 @@ const EditForm = () => {
       );
       if (response.payload.name) {
         dispatch(getStaff());
-        setStateMsg("Request Successful!");
+        setStateMsg("Changed Successfully!");
         setTimeout(() => {
           setLoading(false);
           navigate("/");
         }, 3000);
       } else {
+        setTimeout(() => {
+          setLoading(false);
+          navigate("/");
+        }, 3000);
         setStateMsg("Request failed!");
       }
     }
   };
   return (
     <div className="form-container">
-      {loading && <Loader />}
+      {loading && <Loader loadingMsg={stateMsg} />}
       {
         <div className="editform">
           <button onClick={() => navigate("/")} className="back-btn">

@@ -28,3 +28,18 @@
     transform: rotate(360deg);
   }
 }
+
+.loadmsg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.loadmsg > p {
+  z-index: 1000000;
+  color: green;
+  font-size: 2rem;
+  font-weight: bolder;
+}
