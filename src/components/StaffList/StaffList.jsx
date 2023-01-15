@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { getStaff, staffSelector } from "../../features/StaffSlice";
 import Loader from "../Loader/Loader";
 import "./StaffList.css";
+import { BsFillPersonFill } from "react-icons/bs";
+import { HiOutlineMail } from "react-icons/hi";
+import { GiSpanner } from "react-icons/gi";
 
 const StaffList = () => {
   const [searchName, setSearchName] = useState("");
@@ -35,29 +38,32 @@ const StaffList = () => {
         {data.staff.length > 1 ? (
           searchedList?.map((person) => (
             <article className="person-card" key={person._id}>
-              <div className="card-header">
-                <h3>Name: </h3>
-                <p>{person.name}</p>
+              <div className="bio-header">
+                <div className="card-header">
+                  <BsFillPersonFill title="Name" size={20} />
+                  <p>{person.name}</p>
+                </div>
+                <div className="card-header">
+                  <HiOutlineMail title="Email" size={20} />
+                  <p>{person.email}</p>
+                </div>
+                <div className="card-header">
+                  <GiSpanner title="Occupation" size={20} />
+                  <p>{person.occupation}</p>
+                </div>
               </div>
-              <div className="card-header">
-                <h3>Email: </h3>
-                <p>{person.email}</p>
-              </div>
-              <div className="card-header">
-                <h3>Occupation: </h3>
-                <p>{person.occupation}</p>
-              </div>
-
-              <div>
+              <div className="bio-div">
                 <h5>Bio:</h5>
                 <p>{person.bio}</p>
               </div>
-              <button
-                className="editbtn"
-                onClick={() => navigate(`/${person._id}`)}
-              >
-                Edit
-              </button>
+              <div className="editbtn-div">
+                <button
+                  className="editbtn"
+                  onClick={() => navigate(`/${person._id}`)}
+                >
+                  Edit
+                </button>
+              </div>
             </article>
           ))
         ) : (

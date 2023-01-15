@@ -3,14 +3,16 @@
 }
 .person-card {
   background: #fff;
-  padding: 10px;
-  margin: 1.5rem;
+  /* padding: 10px; */
+  margin: 0.7rem;
   border-radius: 1rem;
 }
 
 .cards-parent {
   width: 100vw;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .search {
@@ -22,26 +24,52 @@
 }
 
 .search > input {
-  padding: 20px;
+  padding: 11px;
   border: none;
-  border-radius: 30px;
+  border-radius: 32px;
 }
 .card-header {
-  /* display: flex; */
+  display: flex;
   align-items: center;
   gap: 1rem;
-}
-.editbtn {
-  background-color: yellow;
-  padding: 10px;
-  padding-right: 20px;
-  padding-left: 20px;
-  font-weight: bolder;
-  font-size: 1rem;
-  border: 1px solid black;
-  border-radius: 1rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
+.bio-div {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.card-header > p {
+  font-weight: bold;
+}
+
+.bio-header {
+  border-radius: 1rem 1rem 0 0;
+  padding-right: 10px;
+  padding-left: 10px;
+  background: linear-gradient(to right, #add8e6 0%, #87ceeb 100%);
+}
+.editbtn-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.editbtn {
+  background-color: orange;
+  padding: 10px;
+  border: none;
+  padding-right: 50px;
+  padding-left: 50px;
+  font-weight: bolder;
+  transition: color 3s;
+  font-size: 1rem;
+  border-radius: 2px;
+}
+
+.editbtn:hover {
+  color: #fff;
+}
 @media screen and (max-width: 800px) {
   .cards-parent {
     grid-template-columns: repeat(1, 1fr);
