@@ -101,7 +101,6 @@ const EditForm = () => {
             <button className="edit-btn" type="submit">
               Change
             </button>
-            <div>{stateMsg}</div>
           </form>
         </div>
       }
