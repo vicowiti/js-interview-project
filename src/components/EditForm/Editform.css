@@ -7,8 +7,11 @@
 }
 .editform {
   margin-top: 3rem;
-  padding: 20px;
-  max-width: 500px !important;
+  margin-bottom: 3rem;
+  padding: 3rem;
+  max-width: 700px !important;
+  background: #fff;
+  border-radius: 1rem;
 }
 
 .form-sgt {
@@ -16,10 +19,12 @@
   flex-direction: column;
 }
 
-input {
+input,
+textarea {
   padding: 0.5rem;
   border-radius: 5px;
   border: none;
+  background-color: #c7bdbd;
 }
 
 .edit-btn {
@@ -40,12 +45,9 @@ label {
 
 .back-btn {
   padding: 10px;
-  background-color: yellow;
+  background-color: orange;
   border: none;
   font-size: 1rem;
   font-weight: 900;
   margin-bottom: 0.2rem;
-}
-
-@media screen and (max-width: 800px) {
 }

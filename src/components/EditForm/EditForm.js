@@ -22,10 +22,10 @@ const EditForm = () => {
   const [occupation, setOccupation] = useState(singleEmployee?.occupation);
   const [bio, setBio] = useState(singleEmployee?.bio);
   const [loading, setLoading] = useState(false);
+  const [stateMsg, setStateMsg] = useState("");
 
   const handleEdit = async (e) => {
     e.preventDefault();
-
     if (name && email && occupation && bio) {
       setLoading(true);
       const response = await dispatch(
@@ -37,19 +37,22 @@ const EditForm = () => {
           bio,
         })
       );
-
       if (response.payload.name) {
-        setLoading(false);
         dispatch(getStaff());
-        navigate("/");
+        setStateMsg("Request Successful!");
+        setTimeout(() => {
+          setLoading(false);
+          navigate("/");
+        }, 3000);
+      } else {
+        setStateMsg("Request failed!");
       }
     }
   };
   return (
     <div className="form-container">
-      {loading ? (
-        <Loader />
-      ) : (
+      {loading && <Loader />}
+      {
         <div className="editform">
           <button onClick={() => navigate("/")} className="back-btn">
             Back
@@ -93,9 +96,10 @@ const EditForm = () => {
             <button className="edit-btn" type="submit">
               Change
             </button>
+            <div>{stateMsg}</div>
           </form>
         </div>
-      )}
+      }
     </div>
   );
 };
