@@ -40,7 +40,7 @@ const StaffList = () => {
       >
         {data.staff.length > 1 ? (
           searchedList?.map((person) => (
-            <article className="person-card" key={person._id}>
+            <article className="person-card" key={person.id}>
               <div className="bio-header">
                 <div className="card-header">
                   <BsFillPersonFill title="Name" size={20} />
@@ -62,7 +62,7 @@ const StaffList = () => {
               <div className="editbtn-div">
                 <button
                   className="editbtn"
-                  onClick={() => navigate(`/${person._id}`)}
+                  onClick={() => navigate(`/${person?.id}`)}
                 >
                   <AiOutlineEdit />
                   Edit

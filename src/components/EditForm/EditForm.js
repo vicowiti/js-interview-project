@@ -15,7 +15,7 @@ const EditForm = () => {
   const navigate = useNavigate();
   const data = useSelector(staffSelector);
 
-  const singleEmployee = data.staff?.find((person) => person._id === id);
+  const singleEmployee = data.staff?.find((person) => person.id === id);
 
   const [name, setName] = useState(singleEmployee?.name);
   const [email, setEmail] = useState(singleEmployee?.email);
@@ -26,31 +26,25 @@ const EditForm = () => {
 
   const handleEdit = async (e) => {
     e.preventDefault();
+    console.log(singleEmployee.name);
     if (name && email && occupation && bio) {
       setLoading(true);
       setStateMsg("Loading...");
       const response = await dispatch(
         patchResource({
-          _id: id,
+          id,
           name,
           email,
           occupation,
           bio,
         })
       );
-      if (response.payload.name) {
+
+      if (response.type === "staff/patchResource/fulfilled") {
         dispatch(getStaff());
         setStateMsg("Changed Successfully!");
-        setTimeout(() => {
-          setLoading(false);
-          navigate("/");
-        }, 3000);
-      } else {
-        setTimeout(() => {
-          setLoading(false);
-          navigate("/");
-        }, 3000);
-        setStateMsg("Error Occurred!");
+        setLoading(false);
+        navigate("/");
       }
     }
   };
@@ -66,32 +60,40 @@ const EditForm = () => {
             <h2>Edit Details</h2>
             <h5>Id: {id}</h5>
             <div className="form-sgt">
-              <label>Name</label>
+              <label htmlFor="name">Name</label>
               <input
+                name="name"
+                required
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className="form-sgt">
-              <label>Email</label>
+              <label htmlFor="email">Email</label>
               <input
+                required
+                name="email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="form-sgt">
-              <label>Occupation</label>
+              <label htmlFor="occupation">Occupation</label>
               <input
+                name="name"
+                required
                 type="text"
                 value={occupation}
                 onChange={(e) => setOccupation(e.target.value)}
               />
             </div>
             <div className="form-sgt">
-              <label>Bio</label>
+              <label htmlFor="bio">Bio</label>
               <textarea
+                name="bio"
+                required
                 value={bio}
                 onChange={(e) => setBio(e.target.value)}
                 rows={8}
@@ -102,6 +104,19 @@ const EditForm = () => {
               Change
             </button>
           </form>
+          {(!name || !email || !occupation || !bio) && (
+            <p
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                color: "red",
+                fontWeight: "bold",
+              }}
+            >
+              Please fill all the fields
+            </p>
+          )}
         </div>
       }
     </div>

@@ -11,12 +11,7 @@ const initialState = {
 export const getStaff = createAsyncThunk("/staff/getStaff", async () => {
   //Fetch data
   const response = await axios.get(
-    "https://touchinspiration-0ada.restdb.io/rest/sample",
-    {
-      headers: {
-        "x-apikey": "63be7360969f06502871ad7f",
-      },
-    }
+    "https://us-central1-ti-reactjs-test.cloudfunctions.net/app/api/users"
   );
 
   return response.data;
@@ -27,16 +22,10 @@ export const patchResource = createAsyncThunk(
   "staff/patchResource",
   async (data, thunkApi) => {
     const response = await axios.patch(
-      `https://touchinspiration-0ada.restdb.io/rest/sample/${data._id}`,
-      data,
-      {
-        headers: {
-          "x-apikey": "63be7360969f06502871ad7f",
-        },
-      }
+      ` https://us-central1-ti-reactjs-test.cloudfunctions.net/app/api/user/${data.id}`,
+      data
     );
 
-    console.log("response", response.data);
     return response.data;
   }
 );
