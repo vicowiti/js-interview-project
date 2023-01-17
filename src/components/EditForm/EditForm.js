@@ -24,12 +24,34 @@ const EditForm = () => {
   const [loading, setLoading] = useState(false);
   const [stateMsg, setStateMsg] = useState("");
 
+  //Checks what fields have been altered
+  // function myDiff(myName, myEmail, MyOcc, myBio) {
+  //   const myObj = { id: singleEmployee.id };
+  //   if (myName !== singleEmployee.name) {
+  //     myObj.name = myName;
+  //   }
+  //   if (myEmail !== singleEmployee.email) {
+  //     myObj.email = myEmail;
+  //   }
+  //   if (MyOcc !== singleEmployee.occupation) {
+  //     myObj.occupation = MyOcc;
+  //   }
+  //   if (myBio !== singleEmployee.bio) {
+  //     myObj.bio = myBio;
+  //   }
+  //   return myObj;
+  // }
+
   const handleEdit = async (e) => {
     e.preventDefault();
-    console.log(singleEmployee.name);
+
+    // const myChangedData = myDiff(name, email, occupation, bio);
+
     if (name && email && occupation && bio) {
       setLoading(true);
       setStateMsg("Loading...");
+      //To send only changed data => returns a 500
+      // const response = await dispatch(patchResource(myData));
       const response = await dispatch(
         patchResource({
           id,
@@ -39,7 +61,7 @@ const EditForm = () => {
           bio,
         })
       );
-
+      console.log(response);
       if (response.type === "staff/patchResource/fulfilled") {
         dispatch(getStaff());
         setStateMsg("Changed Successfully!");
