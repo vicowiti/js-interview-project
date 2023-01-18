@@ -6,6 +6,7 @@
   background: #fff;
   margin: 0.7rem;
   border-radius: 1rem;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.3);
 }
 
 .cards-parent {
@@ -51,7 +52,8 @@
   border-radius: 1rem 1rem 0 0;
   padding-right: 10px;
   padding-left: 10px;
-  background: linear-gradient(to right, #add8e6 0%, #87ceeb 100%);
+  background: #f1efef;
+  /* background: linear-gradient(to right, #add8e6 0%, #87ceeb 100%); */
 }
 .editbtn-div {
   display: flex;
