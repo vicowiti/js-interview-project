@@ -6,10 +6,10 @@
   position: relative;
 }
 .editform {
-  margin-top: 0.5rem;
+  margin-top: 3rem;
   margin-bottom: 0.5rem;
   padding: 2rem;
-  max-width: 50vw !important;
+  max-width: 50vw;
   width: 30vw;
   background: #fff;
   border-radius: 1rem;
@@ -63,10 +63,11 @@ label {
     position: relative;
   }
   .editform {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
     padding: 1.5rem;
-    width: 90vw !important;
+    width: 90vw;
+    max-width: 100vw;
     background: #fff;
     border-radius: 1rem;
   }
@@ -78,35 +79,35 @@ label {
 
   input,
   textarea {
-    padding: 0.5rem;
+    padding: 1rem;
     border-radius: 5px;
     border: none;
     background-color: #ede9e8;
   }
 
   .edit-btn {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     width: 100%;
     background-color: turquoise;
     padding: 0.7rem;
     font-size: 1rem;
     border-radius: 0.5rem;
-    font-weight: 400;
+    font-weight: 500;
     border: none;
   }
 
   label {
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
   }
 
   .back-btn {
-    padding: 10px 15px;
-    border-radius: 1rem;
+    padding: 7px 15px;
     background-color: orange;
     border: none;
     font-size: 1rem;
     font-weight: 900;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.1rem;
+    border-radius: 1rem;
   }
 }
