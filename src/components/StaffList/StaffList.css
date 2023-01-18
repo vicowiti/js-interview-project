@@ -71,7 +71,7 @@
   font-weight: bolder;
   transition: color 3s;
   font-size: 1rem;
-  border-radius: 2px;
+  border-radius: 1rem;
 }
 
 .editbtn:hover {
